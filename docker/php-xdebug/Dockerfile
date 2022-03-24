@@ -1,9 +1,10 @@
-FROM localphp:6b9ac01bdf87a509323b45011ca9e26faedea1b22aa1a309dcfb0235d4d8ca1a
+FROM localphp:c842bc9de73363b5352782a13e773ca03eb5ee18c0b8623ed9213ef970cc88da
 
 RUN apk add --update \
     		autoconf \
     		g++ \
-    		make
+    		make \
+            sudo
 
 RUN yes | pecl install xdebug \
     && echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini \
